@@ -96,6 +96,6 @@ namespace GY80
     };
 }
 
-#include "SistemasdeControle/embeddedTools/sensors/sensorfusion.cpp"
+#include "SistemasdeControle/embeddedTools/sensors/sensorfusion.hpp"
 GY80::sensorfusion sensors;
 #endif

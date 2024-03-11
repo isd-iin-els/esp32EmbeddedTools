@@ -52,5 +52,5 @@ private:
     int sign(double value){if(value > 0) return 1; else return -1;}
 };
 
-#include "SistemasdeControle/embeddedTools/sensors/adxl345.cpp"
+#include "adxl345.hpp"
 #endif // ADRONE_ADXL345_H

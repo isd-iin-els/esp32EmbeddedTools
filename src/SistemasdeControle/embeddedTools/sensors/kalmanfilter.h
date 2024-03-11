@@ -20,4 +20,4 @@ public:
     float filter(float accel, float gyro);
 };
 
-#include "SistemasdeControle/embeddedTools/sensors/kalmanfilter.cpp"
+#include "SistemasdeControle/embeddedTools/sensors/kalmanfilter.hpp"

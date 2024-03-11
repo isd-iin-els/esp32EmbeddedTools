@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include "SistemasdeControle/embeddedTools/communicationLibs/i2cHandler.h"
+#include "SistemasdeControle/embeddedTools/primitiveLibs/LinAlg/matrix.h"
 #include <EEPROM.h>
 
 EEPROMClass  mag_offset("eeprom2");
@@ -34,6 +35,6 @@ private:
     
 };
 
-#include "SistemasdeControle/embeddedTools/sensors/hmc5883l.cpp"
+#include "SistemasdeControle/embeddedTools/sensors/hmc5883l.hpp"
 
 #endif

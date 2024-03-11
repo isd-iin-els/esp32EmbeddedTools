@@ -18,5 +18,5 @@ namespace Communication{
         uint8_t slave_read_byte(uint8_t slave_addr, uint8_t reg);
     };
 }
-#include "SistemasdeControle/embeddedTools/communicationLibs/i2cSoft.cpp"
+#include "SistemasdeControle/embeddedTools/communicationLibs/i2cSoft.hpp"
 #endif

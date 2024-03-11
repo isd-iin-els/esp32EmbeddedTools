@@ -64,4 +64,4 @@ public:
     short getTemp();
 
 };
-#include "mpu6050.cpp"
+#include "mpu6050.hpp"

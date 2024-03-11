@@ -51,5 +51,5 @@ private:
     LinAlg::Matrix<double> X; LinAlg::Matrix<double>  P;
 };
 
-#include "SistemasdeControle/embeddedTools/sensors/kalman.cpp"
+#include "SistemasdeControle/embeddedTools/sensors/kalman.hpp"
 #endif

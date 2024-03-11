@@ -35,5 +35,5 @@ private:
     int16_t  _offset[3];  // offset data
 };
 
-#include "SistemasdeControle/embeddedTools/sensors/l3g4200d.cpp"
+#include "SistemasdeControle/embeddedTools/sensors/l3g4200d.hpp"
 #endif
