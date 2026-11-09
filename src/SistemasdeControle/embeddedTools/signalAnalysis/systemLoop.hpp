@@ -120,11 +120,16 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
             //     dispositivo->fes[j].resetOutputDirectPin();
             //     break;
             // }
-            if(dispositivo->counter == dispositivo->fesDivisionCounter[i])
-                if(dispositivo->fes[j].get_ledc_channel_boost().duty != 0)
+            if(dispositivo->counter == dispositivo->fesDivisionCounter[i]){
+                if(dispositivo->fes[j].get_ledc_channel_boost().duty != 0){
                     dispositivo->fes[j].setOutputDirectPin();
-            else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1])
-                dispositivo->fes[j].resetOutputDirectPin();
+                }
+            }
+            else {
+                if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1]){
+                    dispositivo->fes[j].resetOutputDirectPin();
+                }
+            }
         }
     }
     
