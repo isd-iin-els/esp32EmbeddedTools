@@ -6,7 +6,7 @@ stepperA4988::stepperA4988(gpio_num_t step_pin, gpio_num_t direction_pin)
     this->direction_pin = direction_pin;
 
     #ifdef ESP32DEV
-      gpio_pad_select_gpio((gpio_num_t)step_pin);
+      esp_rom_gpio_pad_select_gpio((gpio_num_t)step_pin);
     #elif ESP32C3DEV
         gpio_pad_select_gpio((gpio_num_t)step_pin);
     #elif ESP32S2DEV
@@ -19,7 +19,7 @@ stepperA4988::stepperA4988(gpio_num_t step_pin, gpio_num_t direction_pin)
     gpio_set_direction(step_pin, GPIO_MODE_OUTPUT);
 
     #ifdef ESP32DEV
-      gpio_pad_select_gpio((gpio_num_t)direction_pin);
+      esp_rom_gpio_pad_select_gpio((gpio_num_t)direction_pin);
     #elif ESP32C3DEV
         gpio_pad_select_gpio((gpio_num_t)direction_pin);
     #elif ESP32S2DEV

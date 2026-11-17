@@ -72,13 +72,19 @@ static esp_err_t i2c_master_read_slave(uint8_t ESP_SLAVE_ADDR, uint8_t AccessedR
     i2c_master_write_byte(cmd,(ESP_SLAVE_ADDR << 1) | WRITE_BIT ,ACK_CHECK_EN);
     i2c_master_write_byte(cmd,AccessedRegister,ACK_CHECK_EN);
     i2c_master_stop(cmd);
-    #ifdef ARDUINO_ARCH_ESP32
-      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
-        i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_RATE_MS);
-      #else
+
+    #ifdef ESP32DEV
+      i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32C3DEV
         i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
-      #endif
+    #elif ESP32S2DEV
+       i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC6
+       i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC5
+        i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
     #endif
+    
     
     i2c_cmd_link_delete(cmd);
 
@@ -87,12 +93,16 @@ static esp_err_t i2c_master_read_slave(uint8_t ESP_SLAVE_ADDR, uint8_t AccessedR
     i2c_master_write_byte(cmd, (ESP_SLAVE_ADDR << 1) | I2C_MASTER_READ, true);
     i2c_master_read_byte(cmd, data_rd, NACK_VAL);
     i2c_master_stop(cmd);
-    #ifdef ARDUINO_ARCH_ESP32
-      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
-        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, 1000 / portTICK_RATE_MS);
-      #else
-        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, 1000 / portTICK_PERIOD_MS);
-      #endif
+    #ifdef ESP32DEV
+      esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32C3DEV
+        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32S2DEV
+       esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC6
+       esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC5
+       esp_err_t ret =  i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
     #endif
     
     i2c_cmd_link_delete(cmd);
@@ -109,12 +119,16 @@ static esp_err_t i2c_master_write_slave(uint8_t ESP_SLAVE_ADDR, uint8_t Accessed
 
     i2c_master_write(cmd, &data_wr, 1, ACK_CHECK_EN);
     i2c_master_stop(cmd);
-    #ifdef ARDUINO_ARCH_ESP32
-      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
-        esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
-      #else
-        esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_PERIOD_MS);
-      #endif
+    #ifdef ESP32DEV
+      esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32C3DEV
+        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32S2DEV
+       esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC6
+       esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+    #elif ESP32DEVC5
+        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
     #endif
     
     i2c_cmd_link_delete(cmd);
