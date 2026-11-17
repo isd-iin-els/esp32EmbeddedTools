@@ -49,7 +49,7 @@ static esp_err_t i2c_master_init(void)
       conf.sda_io_num = I2C_MASTER_READ;
       conf.scl_io_num = I2C_MASTER_ACK_MAX;
   #elif ESP32DEVC5
-      conf.sda_io_num = I2C_MASTER_SDA_IO;
+      conf.sda_io_num = I2C_MASTER_READ;
       conf.scl_io_num = I2C_MASTER_ACK_MAX;
   #endif
     // conf.sda_io_num = I2C_MASTER_SDA_IO;
