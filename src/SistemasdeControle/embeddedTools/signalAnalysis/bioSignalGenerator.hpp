@@ -3,7 +3,7 @@
 void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, const uint32_t &freq, const ledc_channel_t channel)
 {
     // #if SOC_LEDC_SUPPORT_HS_MODE
-    gpio_pad_select_gpio((gpio_num_t)pin);
+    esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     // #else
     // esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     // #endif
@@ -41,7 +41,7 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 
 void ElectroStimulation::bioSignalController::setOutputHandlerPin(const gpio_num_t &pin){
     // #if SOC_LEDC_SUPPORT_HS_MODE
-    gpio_pad_select_gpio((gpio_num_t)pin);
+    esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     // #else
     // esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     // #endif
@@ -52,7 +52,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPin(const gpio_num
 
 void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_num_t &directPin, const gpio_num_t &reversePin){
     // #if SOC_LEDC_SUPPORT_HS_MODE
-    gpio_pad_select_gpio((gpio_num_t)directPin);
+    esp_rom_gpio_pad_select_gpio((gpio_num_t)directPin);
     // #else
     // esp_rom_gpio_pad_select_gpio((gpio_num_t)directPin);
     // #endif
@@ -60,7 +60,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_nu
     this->directPin = directPin;
 
     // #if SOC_LEDC_SUPPORT_HS_MODE
-    gpio_pad_select_gpio((gpio_num_t)reversePin);
+    esp_rom_gpio_pad_select_gpio((gpio_num_t)reversePin);
     // #else
     // esp_rom_gpio_pad_select_gpio((gpio_num_t)reversePin);
     // #endif
