@@ -6,7 +6,7 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
     #ifdef ESP32DEV
       esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32C3DEV
-        gpio_pad_select_gpio((gpio_num_t)pin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32S2DEV
         gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32DEVC6
@@ -55,7 +55,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPin(const gpio_num
      #ifdef ESP32DEV
       esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32C3DEV
-        gpio_pad_select_gpio((gpio_num_t)pin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32S2DEV
         gpio_pad_select_gpio((gpio_num_t)pin);
     #elif ESP32DEVC6
@@ -76,7 +76,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_nu
      #ifdef ESP32DEV
       esp_rom_gpio_pad_select_gpio((gpio_num_t)directPin);
     #elif ESP32C3DEV
-        gpio_pad_select_gpio((gpio_num_t)directPin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)directPin);
     #elif ESP32S2DEV
         gpio_pad_select_gpio((gpio_num_t)directPin);
     #elif ESP32DEVC6
@@ -94,7 +94,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_nu
     #ifdef ESP32DEV
       esp_rom_gpio_pad_select_gpio((gpio_num_t)reversePin);
     #elif ESP32C3DEV
-        gpio_pad_select_gpio((gpio_num_t)reversePin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)reversePin);
     #elif ESP32S2DEV
         gpio_pad_select_gpio((gpio_num_t)reversePin);
     #elif ESP32DEVC6

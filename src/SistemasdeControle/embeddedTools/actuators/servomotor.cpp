@@ -6,7 +6,7 @@ servomotor::servomotor(gpio_num_t servo_pin)
     #ifdef ESP32DEV
       esp_rom_gpio_pad_select_gpio((gpio_num_t)servo_pin);
     #elif ESP32C3DEV
-        gpio_pad_select_gpio((gpio_num_t)servo_pin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)servo_pin);
     #elif ESP32S2DEV
         gpio_pad_select_gpio((gpio_num_t)servo_pin);
     #elif ESP32DEVC6
@@ -32,7 +32,7 @@ void servomotor::setPosition(unsigned int pos)
       #ifdef ESP32DEV
         esp_rom_delay_us((uint32_t)pos);
         #elif ESP32C3DEV
-            ets_delay_us((uint32_t)pos);
+            esp_rom_delay_us((uint32_t)pos);
         #elif ESP32S2DEV
             ets_delay_us((uint32_t)pos);
         #elif ESP32DEVC6
@@ -46,7 +46,7 @@ void servomotor::setPosition(unsigned int pos)
       #ifdef ESP32DEV
       esp_rom_delay_us((uint32_t)10000-pos);
     #elif ESP32C3DEV
-        ets_delay_us((uint32_t)10000-pos);
+        esp_rom_delay_us((uint32_t)10000-pos);
     #elif ESP32S2DEV
         ets_delay_us((uint32_t)10000-pos);
     #elif ESP32DEVC6
