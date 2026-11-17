@@ -36,9 +36,25 @@ static esp_err_t i2c_master_init(void)
 {
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
-    conf.sda_io_num = I2C_MASTER_SDA_IO;
+    #ifdef ESP32DEV
+      conf.sda_io_num = I2C_MASTER_SDA_IO;
+      conf.scl_io_num = I2C_MASTER_SCL_IO;
+  #elif ESP32C3DEV
+      conf.sda_io_num = I2C_MASTER_SDA_IO;
+      conf.scl_io_num = I2C_MASTER_SCL_IO;
+  #elif ESP32S2DEV
+      conf.sda_io_num = I2C_MASTER_READ;
+      conf.scl_io_num = I2C_MASTER_SCL_IO;
+  #elif ESP32DEVC6
+      conf.sda_io_num = I2C_MASTER_READ;
+      conf.scl_io_num = I2C_MASTER_ACK_MAX;
+  #elif ESP32DEVC5
+      conf.sda_io_num = I2C_MASTER_SDA_IO;
+      conf.scl_io_num = I2C_MASTER_ACK_MAX;
+  #endif
+    // conf.sda_io_num = I2C_MASTER_SDA_IO;
     conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.scl_io_num = I2C_MASTER_SCL_IO;
+    // conf.scl_io_num = I2C_MASTER_SCL_IO;
     conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
     conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
     conf.clk_flags = 0;
