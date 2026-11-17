@@ -12,7 +12,7 @@ servomotor::servomotor(gpio_num_t servo_pin)
     #elif ESP32DEVC6
         esp_rom_gpio_pad_select_gpio((gpio_num_t)servo_pin);
     #elif ESP32DEVC5
-        esp_rom_gpio_pad_select_gpio((gpio_num_t)servo_pin);
+        esp_rom_gpio_pad_select_gpio((gpio_num_t)servo_pinstep_pin);
     #endif
     gpio_set_direction(servo_pin, GPIO_MODE_OUTPUT);
     return;
