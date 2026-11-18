@@ -39,6 +39,9 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 	ledc_channel_boost.channel    = channel;
 	ledc_channel_boost.gpio_num   = pin;
 	ledc_channel_boost.timer_sel  = LEDC_TIMER_0;
+    #if ESP32C3DEV
+        ledc_channel_boost.flags.output_invert = 1;
+    #endif
     #if SOC_LEDC_SUPPORT_HS_MODE
     ledc_channel_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
     #else
